@@ -1,0 +1,87 @@
+/* Tailwind theme + utilities only. Preflight is deliberately omitted: the
+   approved design was built on browser defaults plus the base rules below. */
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+:root {
+  /* Brand */
+  --pp-orange: #F78F1E;
+  --pp-orange-rgb: 247, 143, 30;
+  --pp-bronze: #A35407; /* deep orange for small text on light grounds */
+  --pp-peach: #FFC68A; /* light hover / eyebrow tint on dark grounds */
+  --pp-highlight: #FBDDBA; /* soft testimonial highlight */
+
+  /* Ink & grounds */
+  --pp-ink: #252629;
+  --pp-ground: #F6F5F1;
+  --pp-sand: #ECE9E2;
+  --pp-night: #181A1E;
+  --pp-slate: #24272C;
+  --pp-error: #A3340A;
+
+  /* Layout */
+  --pp-max: 1440px;
+  --pp-gutter: clamp(20px, 5vw, 72px);
+  --pp-ease: cubic-bezier(.2, .7, .2, 1);
+
+  --color-accent: var(--pp-orange);
+  --color-text: var(--pp-ink);
+  --color-bg: var(--pp-ground);
+  --font-heading: var(--font-manrope), system-ui, sans-serif;
+  --font-body: var(--font-manrope), system-ui, sans-serif;
+}
+
+@theme inline {
+  --color-pp-orange: var(--pp-orange);
+  --color-pp-ink: var(--pp-ink);
+  --color-pp-ground: var(--pp-ground);
+  --font-sans: var(--font-body);
+}
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--pp-ground);
+    color: var(--pp-ink);
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.65;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, p, blockquote, figure { margin: 0; }
+  h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -0.015em;
+  }
+
+  a { color: var(--pp-ink); text-decoration: none; }
+  a:hover { color: var(--pp-bronze); }
+
+  img { display: block; max-width: 100%; }
+  button, input, select, textarea { font-family: inherit; }
+
+  figcaption {
+    font-size: 11px;
+    margin-top: 4px;
+    color: color-mix(in srgb, var(--pp-ink) 55%, transparent);
+  }
+
+  :focus { outline: none; }
+  :focus-visible { outline: 2px solid var(--pp-orange); outline-offset: 3px; }
+  ::selection { background: rgba(var(--pp-orange-rgb), 0.3); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}

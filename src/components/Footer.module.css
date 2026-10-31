@@ -1,0 +1,70 @@
+.footer { background: #FFFFFF; border-top: 2px solid var(--pp-ink); }
+.inner {
+  max-width: var(--pp-max);
+  margin: 0 auto;
+  padding: clamp(56px, 7vw, 88px) var(--pp-gutter) 28px;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 44px clamp(40px, 6vw, 96px);
+  justify-content: space-between;
+}
+.brand { flex: 4 1 280px; min-width: 0; display: flex; flex-direction: column; gap: 20px; }
+.logoLink { align-self: flex-start; }
+.logo { height: 68px; width: auto; }
+.blurb { font-size: 15.5px; color: #57544E; max-width: 24em; }
+
+.explore { flex: 2 1 160px; min-width: 0; }
+.touch { flex: 3 1 240px; min-width: 0; }
+.heading {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #6B675F;
+}
+.list {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.link {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--pp-ink);
+}
+.link:hover { color: var(--pp-bronze); }
+.bold { font-weight: 700; }
+.email { font-size: 15px; overflow-wrap: break-word; }
+.insta { font-size: 15.5px; }
+.shrink { min-width: 0; }
+.noShrink { flex: none; }
+.location {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding-top: 8px;
+  font-size: 15.5px;
+  color: #57544E;
+}
+.pin { flex: none; margin-top: 4px; }
+
+.legal {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px 32px;
+  margin-top: clamp(44px, 5vw, 72px);
+  padding-top: 20px;
+  border-top: 1px solid rgba(37, 38, 41, 0.18);
+  font-size: 13px;
+  color: #6B675F;
+}

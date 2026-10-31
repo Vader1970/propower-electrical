@@ -1,0 +1,6 @@
+/* Header spacer + hero fill the first viewport: hero = 100svh − header, never shorter than its content (or 560px below 768px wide). */
+.intro {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+}
