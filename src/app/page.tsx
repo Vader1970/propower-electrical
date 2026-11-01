@@ -27,7 +27,7 @@ export default function Home() {
     <EnquiryProvider>
       <Navbar />
       <main>
-        <div className={styles.intro}>
+        <div id="top" className={styles.intro}>
           <HeaderSpacer />
           <Hero />
         </div>

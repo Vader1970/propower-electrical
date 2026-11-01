@@ -7,7 +7,7 @@ const heroServices = ["Residential", "Commercial", "Retail", "Building Maintenan
 
 export default function Hero() {
   return (
-    <section id="top" aria-label="Introduction" className={styles.hero}>
+    <section aria-label="Introduction" className={styles.hero}>
       <Image
         src="/images/hero/twilight-waterfront-house.png"
         alt="Modern waterfront home at dusk, with warm exterior wall lights, glass sliding doors and timber decking above the bay"
