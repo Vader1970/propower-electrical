@@ -1,7 +1,7 @@
 import { gallery } from "@/data/content";
 import { site } from "@/data/site";
 import { colors } from "@/lib/tokens";
-import { Instagram } from "./icons";
+import { ArrowUpRight, Instagram } from "./icons";
 import WorkGallery from "./WorkGallery";
 import styles from "./SelectedWork.module.css";
 
@@ -24,6 +24,9 @@ export default function SelectedWork() {
             <a href={site.instagramHref} target="_blank" rel="noopener noreferrer" className={styles.insta}>
               <Instagram size={17} stroke={colors.bronze} />
               <span className={styles.instaLabel}>View more on Instagram</span>
+              <span aria-hidden="true" className={styles.instaIcon}>
+                <ArrowUpRight size={15} strokeWidth={2.2} />
+              </span>
             </a>
           </div>
         </div>
