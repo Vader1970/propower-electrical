@@ -271,12 +271,39 @@
   .contentTitle { font-size: clamp(40px, min(3.6vw, 6.6svh), 60px); }
 }
 
-/* ───────── Below 1024px: vertical accordion ───────── */
+/* ───────── Below 1024px: every service expanded ───────── */
 .stack {
   margin-top: clamp(40px, 5vw, 64px);
   border-top: 1px solid rgba(255, 255, 255, 0.12);
 }
-.mItem { position: relative; border-bottom: 1px solid rgba(255, 255, 255, 0.12); }
+.mItem { border-bottom: 1px solid rgba(255, 255, 255, 0.12); }
+
+.mHead {
+  position: relative;
+  min-height: 76px;
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr);
+  align-items: center;
+  gap: 14px;
+  padding: 14px clamp(18px, 4vw, 28px);
+  background: var(--pp-slate);
+  overflow: hidden;
+}
+.mHeadBg { position: absolute; inset: -12px; z-index: 0; }
+.mHeadBgImg {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  filter: blur(3px) saturate(0.6);
+}
+.mHeadShade {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: var(--pp-night);
+  opacity: 0.84;
+}
 .mLine {
   position: absolute;
   left: 0;
@@ -284,45 +311,8 @@
   bottom: 0;
   width: 2px;
   background: var(--pp-orange);
-  opacity: 0;
-  transition: opacity .4s ease;
-  z-index: 3;
+  z-index: 1;
 }
-.mItem[data-open="true"] .mLine { opacity: 1; }
-
-.mTab {
-  position: relative;
-  width: 100%;
-  min-height: 92px;
-  display: grid;
-  grid-template-columns: 40px minmax(0, 1fr) 34px;
-  align-items: center;
-  gap: 14px;
-  padding: 0 clamp(18px, 4vw, 28px);
-  background: var(--pp-slate);
-  border: 0;
-  text-align: left;
-  cursor: pointer;
-  color: #FFFFFF;
-  overflow: hidden;
-}
-.mTabBg { position: absolute; inset: -12px; z-index: 0; }
-.mTabBgImg {
-  position: relative;
-  display: block;
-  width: 100%;
-  height: 100%;
-  filter: blur(3px) saturate(0.6);
-}
-.mTabShade {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background: var(--pp-night);
-  opacity: 0.72;
-  transition: opacity .45s ease;
-}
-.mItem[data-open="true"] .mTabShade { opacity: 0.84; }
 .mNum { position: relative; }
 .mTitle {
   position: relative;
@@ -332,68 +322,19 @@
   line-height: 1.15;
   color: #FFFFFF;
 }
-.mInd {
-  position: relative;
-  width: 34px;
-  height: 34px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid rgba(255, 255, 255, 0.45);
-  background: transparent;
-  color: #FFFFFF;
-  transition: background .4s ease, border-color .4s ease;
-}
-.mItem[data-open="true"] .mInd {
-  border-color: var(--pp-orange);
-  background: var(--pp-orange);
-  color: var(--pp-ink);
-}
-.mChevron { transition: transform .42s cubic-bezier(.4, 0, .2, 1); }
-.mItem[data-open="true"] .mChevron { transform: rotate(180deg); }
 
-.mRegion {
-  display: grid;
-  grid-template-rows: 0fr;
-  visibility: hidden;
-  transition: grid-template-rows .38s cubic-bezier(.4, 0, .2, 1), visibility 0s linear .38s;
-}
-.mItem[data-open="true"] .mRegion {
-  grid-template-rows: 1fr;
-  visibility: visible;
-  transition: grid-template-rows .44s cubic-bezier(.4, 0, .2, 1), visibility 0s linear 0s;
-}
-.mClip { min-height: 0; overflow: hidden; }
 .mBody {
-  padding: clamp(20px, 4vw, 28px) clamp(18px, 4vw, 28px) clamp(32px, 6vw, 44px);
+  padding: clamp(18px, 4vw, 26px) clamp(18px, 4vw, 28px) clamp(28px, 5vw, 40px);
   display: flex;
   flex-direction: column;
 }
 .mMedia {
   position: relative;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 10;
   overflow: hidden;
   background: var(--pp-slate);
-  opacity: 0;
-  transform: scale(1.04);
-  transition: opacity .45s ease 0s, transform .8s var(--sv-ease) 0s;
 }
-.mItem[data-open="true"] .mMedia {
-  opacity: 1;
-  transform: scale(1);
-  transition: opacity .45s ease .1s, transform .8s var(--sv-ease) .1s;
-}
-.mText {
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity .45s ease 0s, transform .6s var(--sv-ease) 0s;
-}
-.mItem[data-open="true"] .mText {
-  opacity: 1;
-  transform: none;
-  transition: opacity .45s ease .2s, transform .6s var(--sv-ease) .2s;
-}
-.mSub { margin-top: 22px; }
+.mSub { margin-top: 20px; }
 .mBodyText {
   margin-top: 10px;
   font-size: 16.5px;
@@ -402,8 +343,8 @@
   max-width: 36em;
   text-wrap: pretty;
 }
-.mTags { margin-top: 18px; gap: 8px 20px; }
-.mCta { margin-top: 22px; transition: none; }
+.mTags { margin-top: 16px; gap: 8px 20px; }
+.mCta { align-self: flex-start; margin-top: 18px; transition: none; }
 .mCta:hover { gap: 12px; color: var(--pp-peach); }
 
 @media (min-width: 768px) {

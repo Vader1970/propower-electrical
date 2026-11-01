@@ -38,7 +38,9 @@
   align-items: flex-start;
 }
 .intro { color: #57544E; max-width: 30em; text-wrap: pretty; }
+/* Matches the Approach "Explore our services" link; only the arrow gap animates */
 .insta {
+  max-width: 100%;
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -46,9 +48,24 @@
   font-size: 15px;
   font-weight: 700;
   color: var(--pp-ink);
+  transition: color .25s ease;
 }
 .insta:hover { color: var(--pp-bronze); }
-.instaLabel { border-bottom: 2px solid var(--pp-orange); padding-bottom: 2px; }
+.insta > svg { flex: none; }
+.instaLabel { min-width: 0; }
+.instaIcon {
+  width: 32px;
+  height: 32px;
+  flex: none;
+  margin-left: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--pp-orange);
+  color: var(--pp-ink);
+  transition: margin-left .25s ease;
+}
+.insta:hover .instaIcon { margin-left: 10px; }
 
 /* Asymmetric gallery */
 .grid {
